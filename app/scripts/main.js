@@ -1,5 +1,6 @@
 /*global $:true */
 /*global Backbone:true */
+// test comment
 'use strict';
 
 var trace = function(){
