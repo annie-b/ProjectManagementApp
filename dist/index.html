@@ -1,4 +1,4 @@
-<!DOCTYPE html> <html class=no-js> <head> <meta charset=utf-8> <title>ProjectManagementApp</title> <meta name=description content=""> <meta name=viewport content="width=device-width"> <link rel="shortcut icon" href=/6df2b309.favicon.ico> <!-- Place favicon.ico and apple-touch-icon.png in the root directory --> <link rel=stylesheet href=styles/9c307a9d.vendor.css> <link rel=stylesheet href=styles/7d932e9e.main.css>  <body> <!--[if lt IE 10]>
+<!DOCTYPE html> <html class=no-js> <head> <meta charset=utf-8> <title>ProjectManagementApp</title> <meta name=description content=""> <meta name=viewport content="width=device-width"> <link rel="shortcut icon" href=/6df2b309.favicon.ico> <!-- Place favicon.ico and apple-touch-icon.png in the root directory --> <link rel=stylesheet href=styles/9c307a9d.vendor.css> <link rel=stylesheet href=styles/f3acb2ff.main.css>  <body> <!--[if lt IE 10]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]--> <div class=container> <div class=header> <ul class="nav nav-pills pull-right"> <li class=active><a href=./index.html>Home</a></li> <li><a id=projectslink href=#/projects>Projects</a></li> <li><script>document.write('<a href="#/users/' + localStorage.getItem('currentUser') + '" >User Profile</a>')</script></li> <li><a id=signout href="/">Sign Out</a></li> </ul> <h3 class=text-muted>KickAss ProjectManagementApp</h3> </div> <section class=jumbotron> <h1>Project Management</h1> <img id=tim src=http://www.key4biz.it/wp-content/uploads/2015/02/Tim-Berners-Lee-672x372.jpg> <div class=row> <div class="col-md-2 col-md-offset-3"><button id=sign-up class="btn btn-lg btn-success">Sign Up</button></div> <div class="col-md-2 col-md-offset-1"><button id=sign-in class="btn btn-lg btn-success">Sign In</button></div> </div> <div id=form-slide> <form id=sign-up-form> <fieldset> <div class=form-group> <label for=username>Username: </label> <input id=username name=username autofocus> </div> <div class=form-group> <label for=email>Email:</label> <input type=email id=email name=email autofocus>  </div> <div class=form-group> <label for=password>Password:</label> <input type=password id=password name=password autofocus> </div> <div class=form-group> <label for=title>Title:</label> <input id=title name=title autofocus> </div> <div class=form-group> <button id=sign-up-submit type=submit>Submit</button> </div> </fieldset> </form> </div> <div id=sign-in-form-slide> <form id=sign-in-form> <fieldset> <div class=form-group> <label for=email>Email: </label> <input id=email name=email autofocus> </div> <div class=form-group> <label for=password>Password:</label> <input type=password id=password name=password autofocus> </div> <div class=form-group> <button id=sign-in-submit type=submit>Submit</button> </div> </fieldset> </form> </div> </section> <section id=container></section> <div class=animation></div>  </div> <script src=scripts/8ec6da80.vendor.js></script> <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. --> <script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
       function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
@@ -47,56 +47,60 @@
               </div>
             </div>
           {{/each}}
-          </div></script> <script type=text/x-handlebars-template id=projectTemplate><button type='button' id='new-task'>Add a Task!</button>
-          <div id="myProject" class="project">
-            <h2>{{project.name}}</h2>
-            <ul>
-              <li><span>Description:</span> {{project.description}}</li>
-              <li><span>Due:</span> {{project.due_date}}</li>
-              <li><span>Private?</span> {{project.privacy}}</li>
-            </ul>
-            <h4>Number of Tasks: {{project.tasks.length}}</h4>
-            <ul>
-            {{#each project.tasks}}
-              <li><a href="/#/tasks/{{id}}">{{name}}</a> - <span>Assigned to:</span> {{user.username}} - <span>Status:</span> {{status}}</li>
-            {{/each}}
-            </ul>
-            {{#each project.user}}
-              <p>{{username}} works here</p>
-            {{/each}}
-          </div>
-          <div class="project-buttons">
+          </div></script> <script type=text/x-handlebars-template id=projectTemplate><div class="project-container">
             <button type='button' id='new-task'>Add a Task!</button>
-            <button type='button' id='update-project'>Update this Project!</button>
-            <button type='button' id='delete-project'>Delete this Project!</button>
-            <button type='button' id='show-members'>Show Members!</button>
-          </div>
-          <div id="membership2"><h4>Members:</h4></div></script> <script type=text/x-handlebars-template id=membershipTemplate><div id="membership">
+            <div id="myProject" class="project">
+              <h2>{{project.name}}</h2>
+              <ul>
+                <li><span>Description:</span> {{project.description}}</li>
+                <li><span>Due:</span> {{project.due_date}}</li>
+                <li><span>Private?</span> {{project.privacy}}</li>
+              </ul>
+              <h4>Number of Tasks: {{project.tasks.length}}</h4>
+              <ul>
+              {{#each project.tasks}}
+                <li><a href="/#/tasks/{{id}}">{{name}}</a> - <span>Assigned to:</span> {{user.username}} - <span>Status:</span> {{status}}</li>
+              {{/each}}
+              </ul>
+              {{#each project.user}}
+                <p>{{username}} works here</p>
+              {{/each}}
+            </div>
+            <div class="project-buttons">
+              <button type='button' id='new-task'>Add a Task!</button>
+              <button type='button' id='update-project'>Update this Project!</button>
+              <button type='button' id='delete-project'>Delete this Project!</button>
+              <button type='button' id='show-members'>Show Members!</button>
+            </div>
+            <div id="membership2"><h4>Members:</h4></div>
+          </div></script> <script type=text/x-handlebars-template id=membershipTemplate><div id="membership">
             <ul>
               <li>{{username}}</li>
             </ul>
           </div></script> <script type=text/x-handlebars-template id=updateProjectTemplate><div class="updateproject">
           <p>yo</p>
-          </div></script> <script type=text/x-handlebars-template id=taskTemplate><button type='button' id='new-comment'>Add a Comment!</button>
-          <button type='button' id='update-task'>Update this Task!</button>
-          <button type='button' id='delete-task'>Delete this Task!</button>
-          <div class="task">
-            <h2>{{task.name}}</h2>
-            <ul>
-              <li>Due date: {{task.due_date}}</li>
-              <li>Status: {{task.status}}</li>
-              <li>Priority: {{task.priority}}</li>
-              <li>Order: {{task.order}}</li>
-            </ul>
+          </div></script> <script type=text/x-handlebars-template id=taskTemplate><div class="project-container">
+            <button type='button' id='new-comment'>Add a Comment!</button>
+            <button type='button' id='update-task'>Update this Task!</button>
+            <button type='button' id='delete-task'>Delete this Task!</button>
+            <div class="task">
+              <h2>{{task.name}}</h2>
+              <ul>
+                <li>Due date: {{task.due_date}}</li>
+                <li>Status: {{task.status}}</li>
+                <li>Priority: {{task.priority}}</li>
+                <li>Order: {{task.order}}</li>
+              </ul>
 
-            <button type='button' id='task-file'>Add a file</button>
-            <form id="task-form">
-            </form>
-            <br>
-            <h3>Comments:</h3>
-            <ul>
-              {{#each task.comments}}
-                <li>{{body}} <button type='button' class='delete-comment'>Delete!</button></li>
-              {{/each}}
-            </ul>
+              <button type='button' id='task-file'>Add a file</button>
+              <form id="task-form">
+              </form>
+              <br>
+              <h3>Comments:</h3>
+              <ul>
+                {{#each task.comments}}
+                  <li>{{body}} <button type='button' class='delete-comment'>Delete!</button></li>
+                {{/each}}
+              </ul>
+            </div>
           </div></script>  
