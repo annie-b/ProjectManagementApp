@@ -184,6 +184,10 @@ input {
   list-style-type: none;
 }
 
+.task ul li {
+  list-style-type: none;
+}
+
 .avatar-form {
   margin: 0 auto;
 }

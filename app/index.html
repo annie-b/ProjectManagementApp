@@ -184,12 +184,12 @@
 
         <script type="text/x-handlebars-template" id="projectsTemplate">
           <div class="newproject jumbotron">
-          <p class="project-image"><a href="ProjectManagementApp/#/new-project">Create a new project</a></p>
+          <p class="project-image"><a href="#/new-project">Create a new project</a></p>
           <div class="row row-same-height">
           {{#each projects}}
             <div class="project">
               <div class="project-background">
-              <h2><a href="ProjectManagementApp/#/projects/{{id}}" >{{name}}</a></h2>
+              <h2><a href="#/projects/{{id}}" >{{name}}</a></h2>
               <ul>
                 <li><span>Decription:</span> {{description}}</li>
                 <li><span>Due:</span> {{due_date}}</li>
@@ -248,7 +248,7 @@
 
 
         <script type="text/x-handlebars-template" id="taskTemplate">
-          <div class="project-container">
+          <div class="project-container jumbotron">
             <button class="btn-sm btn-success" type='button' id='new-comment'>Add a Comment</button>
             <button class="btn-sm btn-success" type='button' id='update-task'>Update this Task</button>
             <button class="btn-sm btn-success" type='button' id='delete-task'>Delete this Task</button>
@@ -261,14 +261,14 @@
                 <li>Order: {{task.order}}</li>
               </ul>
 
-              <button type='button' id='task-file'>Add a file</button>
+              <button class="btn-sm btn-success" type='button' id='task-file'>Add a file</button>
               <form id="task-form">
               </form>
               <br>
               <h3>Comments:</h3>
               <ul>
                 {{#each task.comments}}
-                  <li>{{body}} <button type='button' class='delete-comment'>Delete!</button></li>
+                  <li>{{body}} <button class="btn-sm btn-success" type='button' class='delete-comment'>Delete!</button></li>
                 {{/each}}
               </ul>
             </div>
