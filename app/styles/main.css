@@ -252,8 +252,8 @@ p, button, #avatar-change {
 }
 
 #tim {
-  width: 75%;
-  margin: 10px;
+  height: 300px;
+  margin: 0 auto;
 }
 
 .col-lg-height {
@@ -267,4 +267,8 @@ p, button, #avatar-change {
 
 .partial-form {
   margin: 0 auto;
+}
+
+.brown {
+  color: #2B2301;
 }
