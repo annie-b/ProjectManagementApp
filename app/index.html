@@ -39,9 +39,9 @@
 
           <ul class="nav navbar-nav navbar-right">
             <li><a href='./index.html'>Home</a></li>
-            <li><a id='projectslink' href='#/projects'>Projects</a></li>
-            <li><script>document.write('<a href="#/users/' + localStorage.getItem('currentUser') + '" >User Profile</a>')</script></li>
-          <li><a id='signout' href='/'>Sign Out</a></li>
+            <li><a id='projectslink' href='ProjectManagementApp/#/projects'>Projects</a></li>
+            <li><script>document.write('<a href="ProjectManagementApp/#/users/' + localStorage.getItem('currentUser') + '" >User Profile</a>')</script></li>
+          <li><a id='signout' href='ProjectManagementApp/'>Sign Out</a></li>
           </ul>
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
@@ -152,11 +152,11 @@
         <script type="text/x-handlebars-template" id="usersTemplate">
           {{#each users}}
             <div class="user">
-              <h2><a href="/#/users/{{id}}" >{{username}}</a></h2>
+              <h2><a href="ProjectManagementApp//#/users/{{id}}" >{{username}}</a></h2>
               <ul>
                 <li>{{title}}</li>
                 <li>{{email}}</li>
-                <li><a href="/#/users/{{id}}">View this user</a></li>
+                <li><a href="ProjectManagementApp//#/users/{{id}}">View this user</a></li>
               </ul>
             </div>
           {{/each}}
@@ -184,17 +184,17 @@
 
         <script type="text/x-handlebars-template" id="projectsTemplate">
           <div class="newproject jumbotron">
-          <p class="project-image"><a href="#/new-project">Create a new project</a></p>
+          <p class="project-image"><a href="ProjectManagementApp/#/new-project">Create a new project</a></p>
           <div class="row row-same-height">
           {{#each projects}}
             <div class="project">
               <div class="project-background">
-              <h2><a href="#/projects/{{id}}" >{{name}}</a></h2>
+              <h2><a href="ProjectManagementApp/#/projects/{{id}}" >{{name}}</a></h2>
               <ul>
                 <li><span>Decription:</span> {{description}}</li>
                 <li><span>Due:</span> {{due_date}}</li>
                 <li><span>Privacy:</span> {{privacy}}</li>
-                <li><a href="/#/projects/{{id}}">View this project</a></li>
+                <li><a href="ProjectManagementApp//#/projects/{{id}}">View this project</a></li>
               </ul>
               </div>
             </div>
@@ -214,7 +214,7 @@
               <h4>Number of Tasks: {{project.tasks.length}}</h4>
               <ul>
               {{#each project.tasks}}
-                <li><a href="/#/tasks/{{id}}">{{name}}</a> - <span>Assigned to:</span> {{user.username}} - <span>Status:</span> {{status}}</li>
+                <li><a href="ProjectManagementApp//#/tasks/{{id}}">{{name}}</a> - <span>Assigned to:</span> {{user.username}} - <span>Status:</span> {{status}}</li>
               {{/each}}
               </ul>
               {{#each project.user}}
