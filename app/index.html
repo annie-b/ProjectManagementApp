@@ -214,7 +214,7 @@
               <h4>Number of Tasks: {{project.tasks.length}}</h4>
               <ul>
               {{#each project.tasks}}
-                <li><a href="ProjectManagementApp//#/tasks/{{id}}">{{name}}</a> - <span>Assigned to:</span> {{user.username}} - <span>Status:</span> {{status}}</li>
+                <li><a href="#/tasks/{{id}}">{{name}}</a> - <span>Assigned to:</span> {{user.username}} - <span>Status:</span> {{status}}</li>
               {{/each}}
               </ul>
               {{#each project.user}}
