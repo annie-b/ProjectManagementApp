@@ -9,6 +9,7 @@ var UserApp = (function() {
 
   var run = function() {
     authToken = localStorage.getItem('authToken');
+    // apiHost = 'http://localhost:3000';
     apiHost = 'https://project-management-api.herokuapp.com';
     setupAjaxRequests();
     $('#sign-in-form').on('submit', submitLogin);
@@ -57,6 +58,7 @@ var UserApp = (function() {
       trace(response);
     });
      window.location.href = '/ProjectManagementApp/#/users/' + userData.id;
+     // window.location.href = '/#/users/' + userData.id;
   };
 
   var submitLogin = function(event) {
@@ -86,6 +88,7 @@ var UserApp = (function() {
     if (error.status === 401) {
       console.log('SEND TO LOGIN SCREEN');
       window.location.href = '/ProjectManagementApp/index.html';
+      // window.location.href = '/index.html';
     }
   };
 
@@ -94,6 +97,7 @@ var UserApp = (function() {
     localStorage.removeItem('authToken');
     authToken = undefined;
     location.reload();
+     // window.location.href = '/index.html';
      window.location.href = '/ProjectManagementApp/index.html';
   };
   return {run: run};
@@ -121,10 +125,13 @@ $( 'button#sign-in' ).click(function () {
   });
 };
 
+
+
 $(document).ready(function() {
   UserApp.run();
   $( "div#form-slide" ).hide();
   $( "div#sign-in-form-slide").hide();
+  $( "div#avatar-form-slide").hide();
   SignUp();
   SignIn();
 });

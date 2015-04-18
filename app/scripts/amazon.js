@@ -9,6 +9,7 @@ var App = App || {};
 
 App.getAmazonKey = function(){
   var apiURL = 'https://project-management-api.herokuapp.com'
+  // var apiURL = 'http://localhost:3000'
 
   $.ajax({
     url: apiURL + '/amazon/sign_key/image%2Fjpeg'
@@ -21,14 +22,14 @@ App.getAmazonKey = function(){
 
 App.buildFormData = function(myAws){
   fileName = myAws.key;
-  $('form#avatar').append('<input type="hidden" name="key" value="' + myAws.key + '">')
-  $('form#avatar').append('<input type="hidden" name="AWSAccessKeyId" value="' + myAws.access_key + '">')
-  $('form#avatar').append('<input type="hidden" name="policy" value="' + myAws.policy + '">')
-  $('form#avatar').append('<input type="hidden" name="signature" value="' + myAws.signature + '">')
-  $('form#avatar').append('<input type="hidden" name="Content-Type" value="image/jpeg">')
-  $('form#avatar').append('File to upload to S3');
-  $('form#avatar').append('<input id="file_upload" name="file" type="file"><br>');
-  $('form#avatar').append('<input id="form-submit" type="submit" value="Upload File to S3">');
+  $('form#avatar').append('<input class="avatar-form" type="hidden" name="key" value="' + myAws.key + '">')
+  $('form#avatar').append('<input class="avatar-form" type="hidden" name="AWSAccessKeyId" value="' + myAws.access_key + '">')
+  $('form#avatar').append('<input class="avatar-form" type="hidden" name="policy" value="' + myAws.policy + '">')
+  $('form#avatar').append('<input class="avatar-form" type="hidden" name="signature" value="' + myAws.signature + '">')
+  $('form#avatar').append('<input class="avatar-form" type="hidden" name="Content-Type" value="image/jpeg">')
+  $('form#avatar').append('Choose a file to uplaod');
+  $('form#avatar').append('<input class="avatar-form" id="file_upload" name="file" type="file"><br>');
+  $('form#avatar').append('<input class="avatar-form" id="form-submit" type="submit" value="Submit">');
 }
 
 App.sendImageToRails = function(fileName){

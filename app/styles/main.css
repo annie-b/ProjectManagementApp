@@ -14,16 +14,46 @@
 }
 /* Space out content a bit */
 body {
-  padding-top: 20px;
   padding-bottom: 20px;
-  /*background: repeating-linear-gradient(
-  to right,
-  #fcdfae,
-  #fcdfae 10px,
-  #fce6c2 10px,
-  #fce6c2 20px
-);*/
-  background-image: url("https://s3.amazonaws.com/project-management-bucket/cork-background.jpg")
+  background-color: #73AFB6;
+}
+
+.project-background {
+  border-color: #2B2301;
+}
+
+.jumbotron {
+  background-color: #DAD197;
+}
+
+.sign-up-button {
+  background-color: #2B2301;
+}
+
+.navbar {
+  width: 100%;
+  background-color: #2B2301;
+  color: white;
+  border-color: #2B2301;
+  font-size: 1.25em;
+}
+
+.navbar-right {
+  padding-right: 2%;
+}
+
+.navbar-default .navbar-nav>li>a {
+    color: rgba(255, 255, 255, 1);
+    background-color: rgba(248, 248, 248, 0);
+}
+
+.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+    background-color: white;
+    color: #2B2301;
+}
+
+nav a {
+  color: white;
 }
 
 /* Everything but the jumbotron gets side spacing for mobile first views */
@@ -67,7 +97,17 @@ body {
 .jumbotron .btn {
   font-size: 21px;
   padding: 14px 24px;
+  background-color: #2B2301;
+  border: 1px solid #73AFB6;
 }
+
+.jumbotron .btn-sm {
+  /*font-size: 21px;*/
+  /*padding: 14px 24px;*/
+  background-color: #2B2301;
+  border: 1px solid #73AFB6;
+}
+
 
 /* Supporting marketing content */
 .marketing {
@@ -140,22 +180,12 @@ input {
   border: 1px solid #000;
 }
 
-.user {
-  margin-left: 34%;
+.user ul li {
+  list-style-type: none;
 }
 
-.user-container {
-  background-color: #eeeeee;
-  margin-left: 20%;
-  margin-right: 15%;
-  height: 350px;
-  border: #428bca solid 3px;
-}
-
-.project-container {
-  background-color: #eeeeee;
-  padding: 5px;
-  border: #428bca solid 3px;
+.avatar-form {
+  margin: 0 auto;
 }
 
 .task-container {
@@ -165,7 +195,7 @@ input {
 }
 
 .user h2 {
-  margin-left: 5%;
+  /*margin-left: 5%;*/
   padding: 2%;
 }
 
@@ -185,13 +215,13 @@ p, button, #avatar-change {
 
 .project ul {
   padding: 5px;
-  /*background-color: #eeeeee;*/
   list-style-type: none;
 }
 
 .project .project-background {
   background: rgba(255, 255, 255, 0.9);
   padding: 10px;
+  border-color: #2B2301;
 }
 
 .project ul span {
@@ -205,13 +235,12 @@ p, button, #avatar-change {
   padding: 5px;
 }
 
-.newproject {
-  padding: 10px;
+.project-image {
+  text-align: right;
 }
 
-#project-form button {
-  margin-left: 19%;
-  padding: 5px;
+.project-image img {
+  height: 20px;
 }
 
 .row-same-height {
@@ -233,6 +262,5 @@ p, button, #avatar-change {
 }
 
 .partial-form {
-  background: rgba(255, 255, 255, 0.9);
-  padding: 5px;
+  margin: 0 auto;
 }

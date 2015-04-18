@@ -11,6 +11,7 @@ var trace = function(){
 
 var App = App || {
   url: 'https://project-management-api.herokuapp.com'
+  // url: 'http://localhost:3000'
 };
 var Project = Project || {};
 var Task = Task || {};
@@ -31,6 +32,7 @@ var Router = Backbone.Router.extend({
 
   home: function(){
     $('#container').empty();
+    $('#container').load('index.html');
   },
 
   users: function(){
@@ -52,7 +54,6 @@ var Router = Backbone.Router.extend({
   },
 
   user: function(id){
-    trace('hello from the user backbone!',id);
     $('#container').empty();
     $('.jumbotron').hide();
 
@@ -68,12 +69,8 @@ var Router = Backbone.Router.extend({
         user: response.user
       }));
       $( 'button#avatar-change' ).click(function () {
-        if ( $( "div#sign-in-form-slide" ).is( ":hidden" ) ) {
           $( "div#avatar-form" ).slideDown( "slow" );
           App.getAmazonKey();
-        } else {
-          $( "div#sign-in-form-slide" ).hide();
-        }
       });
     }).fail(function(jqXHR, textStatus, errorThrown){
       trace(jqXHR, textStatus, errorThrown);
@@ -145,7 +142,9 @@ var Router = Backbone.Router.extend({
   },
 
   newProject: function(){
-    $('#container').empty().load('partials/project-form.html',function(response,status,xhr){
+    $('#container').empty()
+    $('.jumbotron').hide();
+    $('#container').load('partials/project-form.html',function(response,status,xhr){
       var $form = $('#project-form');
       $form.on('submit',function(event){
         Project.newProcessForm(event,$form,router);
@@ -246,7 +245,9 @@ Project.newPostParams = function(name, description, date, privacy, user, router)
 };
 
 Task.newTask = function(){
-  $('#container').empty().load('partials/task-form.html',function(response,status,xhr){
+  $('#container').empty()
+  $('.jumbotron').hide();
+  $('#container').load('partials/task-form.html',function(response,status,xhr){
     var $form = $('#task-form');
     $form.on('submit',function(event){
       Task.newTaskForm(event,$form,router);
